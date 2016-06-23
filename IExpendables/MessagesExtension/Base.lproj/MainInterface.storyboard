@@ -21,7 +21,7 @@
                                 <frame key="frameInset" minY="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t5W-tB-ejY" id="maB-QI-VIF">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-4Z-py5"/>
@@ -115,7 +115,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="AsN-Ph-Z9d">
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Azc-Wt-GWk" userLabel="Area" customClass="AreaParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="cityTextFieldDidPressed" destination="Dqs-vY-XGb" eventType="touchUpInside" id="LtO-pG-dbT"/>
@@ -128,8 +128,11 @@
                                             <constraint firstAttribute="height" constant="20" id="juB-4o-2lC"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CheckIn" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5q-tE-MR8" userLabel="Dates range" customClass="DateParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Check in" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5q-tE-MR8" userLabel="Dates range" customClass="DateParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="jkS-y0-BlQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCondensed" value="YES"/>
@@ -145,8 +148,11 @@
                                             <constraint firstAttribute="height" constant="20" id="ul4-ta-EmT"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CheckOut" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hAh-2m-2n0" userLabel="Dates range" customClass="DateParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Check out" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hAh-2m-2n0" userLabel="Dates range" customClass="DateParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="d0S-fc-jj7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCondensed" value="YES"/>
@@ -162,9 +168,12 @@
                                             <constraint firstAttribute="width" constant="1" id="yVu-Hc-LVM"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6J-EZ-TmC" userLabel="Guests number" customClass="GuestsParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guests" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6J-EZ-TmC" userLabel="Guests number" customClass="GuestsParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="zbq-mY-LQQ"/>
+                                        </constraints>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="includeGuestText" value="NO"/>
@@ -193,14 +202,14 @@
                                 </variation>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4M1-ce-kuT" userLabel="separator">
-                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="YvA-aB-cLh"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptz-Pq-KNY">
                                 <connections>
-                                    <segue destination="nmq-Uo-VOC" kind="embed" id="CHq-eH-IaR"/>
+                                    <segue destination="J5B-gf-4u0" kind="embed" id="P50-7A-1f0"/>
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylR-qL-0YG">
@@ -305,16 +314,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckOut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2p-iJ-ejz">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dq8-Yr-0fE">
+                                <date key="date" timeIntervalSinceReferenceDate="488378184.49774498">
+                                    <!--2016-06-23 12:36:24 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="s2p-iJ-ejz" firstAttribute="centerX" secondItem="7yZ-Dt-kcg" secondAttribute="centerX" id="Pxe-VR-Bwf"/>
-                            <constraint firstItem="s2p-iJ-ejz" firstAttribute="centerY" secondItem="7yZ-Dt-kcg" secondAttribute="centerY" id="nLZ-hQ-H51"/>
+                            <constraint firstItem="dq8-Yr-0fE" firstAttribute="leading" secondItem="7yZ-Dt-kcg" secondAttribute="leading" id="8jb-Q5-od6"/>
+                            <constraint firstItem="dq8-Yr-0fE" firstAttribute="top" secondItem="x5V-F3-QE3" secondAttribute="bottom" id="anq-Hd-WII"/>
+                            <constraint firstAttribute="trailing" secondItem="dq8-Yr-0fE" secondAttribute="trailing" id="etl-dZ-hH9"/>
+                            <constraint firstItem="oQT-1s-Umf" firstAttribute="top" secondItem="dq8-Yr-0fE" secondAttribute="bottom" id="vY1-ib-e64"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -323,33 +334,69 @@
             <point key="canvasLocation" x="2073" y="-77"/>
         </scene>
         <!--Cities View Controller-->
-        <scene sceneID="XZr-uh-3R7">
+        <scene sceneID="5nR-xC-Uda">
             <objects>
-                <viewController id="nmq-Uo-VOC" customClass="CitiesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SDq-W4-Buv"/>
-                        <viewControllerLayoutGuide type="bottom" id="bD2-M9-9eN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="SW8-TR-csZ">
+                <tableViewController id="J5B-gf-4u0" customClass="CitiesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eed-ty-vJb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-jM-ghu">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FJT-jM-ghu" firstAttribute="centerY" secondItem="SW8-TR-csZ" secondAttribute="centerY" id="J5o-gV-qI8"/>
-                            <constraint firstItem="FJT-jM-ghu" firstAttribute="centerX" secondItem="SW8-TR-csZ" secondAttribute="centerX" id="k5o-UG-b8t"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G0T-ww-BTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="InspirationTableViewCellID" id="akc-mx-pde" customClass="InspirationTableViewCell" customModule="MessagesExtension" customModuleProvider="target">
+                                <frame key="frameInset" minY="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="akc-mx-pde" id="2wy-jR-95d">
+                                    <frame key="frameInset" width="375" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8b-u4-0kZ">
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2A-hB-Ruf"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berlin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2so-hv-Yyw">
+                                                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="Cbm-a3-WhA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="2so-hv-Yyw" secondAttribute="bottom" id="6bd-ry-ABo"/>
+                                                <constraint firstAttribute="trailing" secondItem="2so-hv-Yyw" secondAttribute="trailing" id="ClQ-Ce-PBy"/>
+                                                <constraint firstItem="2so-hv-Yyw" firstAttribute="leading" secondItem="g8b-u4-0kZ" secondAttribute="leading" id="I21-N9-Xx5"/>
+                                                <constraint firstItem="T2A-hB-Ruf" firstAttribute="leading" secondItem="g8b-u4-0kZ" secondAttribute="leading" id="QuI-0r-z2J"/>
+                                                <constraint firstAttribute="trailing" secondItem="T2A-hB-Ruf" secondAttribute="trailing" id="h8N-I9-d6r"/>
+                                                <constraint firstItem="T2A-hB-Ruf" firstAttribute="top" secondItem="g8b-u4-0kZ" secondAttribute="top" id="nLx-nd-ztq"/>
+                                                <constraint firstAttribute="bottom" secondItem="T2A-hB-Ruf" secondAttribute="bottom" id="qt7-vI-7x0"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="g8b-u4-0kZ" firstAttribute="leading" secondItem="2wy-jR-95d" secondAttribute="leading" constant="20" id="0b9-4D-gcx"/>
+                                        <constraint firstAttribute="trailing" secondItem="g8b-u4-0kZ" secondAttribute="trailing" constant="20" id="G0Q-aJ-E4C"/>
+                                        <constraint firstItem="g8b-u4-0kZ" firstAttribute="top" secondItem="2wy-jR-95d" secondAttribute="top" constant="10" id="gt2-2X-9nV"/>
+                                        <constraint firstAttribute="bottom" secondItem="g8b-u4-0kZ" secondAttribute="bottom" constant="10" id="kG2-HH-EAS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityContainer" destination="g8b-u4-0kZ" id="8gA-H4-7Dz"/>
+                                    <outlet property="cityImageView" destination="T2A-hB-Ruf" id="6ps-0L-wO3"/>
+                                    <outlet property="cityLabel" destination="2so-hv-Yyw" id="X4E-SP-BIv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="J5B-gf-4u0" id="5cB-EL-bOI"/>
+                            <outlet property="delegate" destination="J5B-gf-4u0" id="LPY-G8-FUA"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lhm-KX-iUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073" y="-705"/>
+            <point key="canvasLocation" x="2073" y="-694"/>
         </scene>
         <!--Check In View Controller-->
         <scene sceneID="weq-R2-hec">
@@ -363,16 +410,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqd-w4-4xH">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="aSa-Td-uom">
+                                <date key="date" timeIntervalSinceReferenceDate="488378107.27815998">
+                                    <!--2016-06-23 12:35:07 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lqd-w4-4xH" firstAttribute="centerY" secondItem="FJA-OM-4Jp" secondAttribute="centerY" id="Lv0-cn-32I"/>
-                            <constraint firstItem="Lqd-w4-4xH" firstAttribute="centerX" secondItem="FJA-OM-4Jp" secondAttribute="centerX" id="h1v-uT-N4H"/>
+                            <constraint firstItem="aSa-Td-uom" firstAttribute="leading" secondItem="FJA-OM-4Jp" secondAttribute="leading" id="fhj-YV-JoI"/>
+                            <constraint firstAttribute="trailing" secondItem="aSa-Td-uom" secondAttribute="trailing" id="tCx-Zf-a1Z"/>
+                            <constraint firstItem="aSa-Td-uom" firstAttribute="top" secondItem="dlH-gz-zHH" secondAttribute="bottom" id="y1R-V5-VIc"/>
+                            <constraint firstItem="eQg-Du-KJO" firstAttribute="top" secondItem="aSa-Td-uom" secondAttribute="bottom" id="yMb-rr-cpq"/>
                         </constraints>
                     </view>
                 </viewController>

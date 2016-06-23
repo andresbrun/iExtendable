@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-let regularFontName = "Avenir-Medium"
-let semiboldFontName = "Avenir-Heavy"
-let lightFontName = "Avenir-Light"
+let regularFontName = "OpenSans"
+let semiboldFontName = "OpenSans-Semibold"
+let lightFontName = "OpenSans-Light"
 
 enum WimduFont {
     case Title
@@ -46,7 +46,7 @@ enum WimduFont {
         case .Body2: return UIFont(name: lightFontName, size: 14)!
         case .Small1: return UIFont(name: lightFontName, size: 13)!
         case .Small2: return UIFont(name: regularFontName, size: 12)!
-        case .Small3: return UIFont(name: lightFontName, size: 10)!
+        case .Small3: return UIFont(name: lightFontName, size: 12)!
         case .Tiny: return UIFont(name: regularFontName, size: 10)!
         case .Secured: return .systemFont(ofSize: 15.0)
         case .RegularLarge: return UIFont(name: regularFontName, size: 20)!

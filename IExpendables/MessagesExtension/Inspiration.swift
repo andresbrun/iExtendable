@@ -6,9 +6,16 @@
 //  Copyright © 2016 Andres Brun. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
-struct Inspiration {
+class Inspiration {
     let name: String
-    let image: String
+    let imageURL: String
+    var image: UIImage?
+    
+    init(json: [String: String]) {
+        name = json["city_name"]!
+        imageURL = json["image"]!
+    }
 }

@@ -11,4 +11,5 @@ import UIKit
 class CheckOutViewController: UIViewController, SearchParameterViewController {
     
     var search: Search?
+    var completion: ((Void) -> ())?
 }

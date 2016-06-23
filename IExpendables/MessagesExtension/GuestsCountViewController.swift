@@ -11,4 +11,5 @@ import UIKit
 class GuestsCountViewController: UIViewController, SearchParameterViewController {
     
     var search: Search?
+    var completion: ((Void) -> ())?
 }

@@ -11,11 +11,12 @@ import UIKit
 
 protocol SearchParameterViewController {
     var search: Search? { get set }
+    var completion: ((Void) -> ())? { get set }
 }
 
 class SearchVC: UIViewController {
     
-    var search: Search?
+    var search: Search!
     
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var checkInTextField: UITextField!
@@ -34,9 +35,17 @@ class SearchVC: UIViewController {
         return controller
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateSearch()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if var searchParameterViewController = segue.destinationViewController as? SearchParameterViewController {
             searchParameterViewController.search = search
+            searchParameterViewController.completion = { [weak self] in
+                self?.updateSearch()
+            }
         }
     }
     
@@ -61,5 +70,18 @@ class SearchVC: UIViewController {
         checkInView.isHidden = checkInView != view
         checkOutView.isHidden = checkOutView != view
         guestsView.isHidden = guestsView != view
+    }
+    
+    private func updateSearch() {
+        update(textField: cityTextField, value: search.inspiration?.name)
+        update(textField: checkInTextField, value: search.checkin?.simpleString)
+        update(textField: checkOutTextField, value: search.checkout?.simpleString)
+        update(textField: guestsTextField, value: String(search.guests))
+    }
+    
+    private func update(textField: UITextField, value: String?) {
+        textField.text = value ?? textField.placeholder
+        textField.textColor = value != nil ? .wValleyGrey() : .lightGray()
+        textField.font = WimduFont.Small3.font
     }
 }

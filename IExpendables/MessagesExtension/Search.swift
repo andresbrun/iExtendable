@@ -9,13 +9,14 @@
 import Foundation
 import Messages
 
-struct Search {
+class Search {
     var guests: Int = 2
     var inspirationID: String?
     var checkin: Date?
     var checkout: Date?
     var selectedOfferID: String?
     var selectedOfferImageURL: String?
+    var inspiration: Inspiration?
 }
 
 extension Search {
@@ -48,7 +49,8 @@ extension Search {
         return items
     }
     
-    init?(queryItems: [URLQueryItem]) {
+    convenience init?(queryItems: [URLQueryItem]) {
+        self.init()
         var guests: Int = 2
         var inspirationID: String?
         var checkin: Date?
@@ -92,7 +94,7 @@ extension Search {
 }
 
 extension Search {
-    init?(message: MSMessage?) {
+    convenience init?(message: MSMessage?) {
         guard let messageURL = message?.url else { return nil }
         guard let urlComponents = NSURLComponents(url: messageURL, resolvingAgainstBaseURL: false), queryItems = urlComponents.queryItems else { return nil }
         

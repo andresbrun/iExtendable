@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SearchParameterTextField: UITextField {
     
@@ -31,7 +32,7 @@ class SearchParameterTextField: UITextField {
     override func awakeFromNib() {
         super.awakeFromNib()
         textColor = .wValleyGrey()
-        font = WimduFont.Body1.font
+        font = WimduFont.Small3.font
     }
     
     // We dont't want this UITextField to be editable
@@ -44,7 +45,9 @@ class SearchParameterTextField: UITextField {
     }
     
     func commonInit() {
-        initIcon()
+        if let iconImageValue = iconImageName() {
+            iconImage = UIImage(named: iconImageValue)
+        }
     }
     
     // UITextfield doesn't react to `Touch Up Inside` event, so we force it when touches ended
@@ -54,12 +57,6 @@ class SearchParameterTextField: UITextField {
         
         if bounds.contains(touchLocation) {
             sendActions(for: UIControlEvents.touchUpInside)
-        }
-    }
-    
-    private func initIcon() {
-        if let iconImageValue = iconImageName() {
-            iconImage = UIImage(named: iconImageValue)
         }
     }
     

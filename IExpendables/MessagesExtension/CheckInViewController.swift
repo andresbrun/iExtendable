@@ -11,4 +11,5 @@ import UIKit
 class CheckInViewController: UIViewController, SearchParameterViewController {
     
     var search: Search?
+    var completion: ((Void) -> ())?
 }
