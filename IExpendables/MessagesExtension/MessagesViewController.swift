@@ -139,8 +139,13 @@ extension MessagesViewController: OfferListVCDelegate {
         // Create a new message with the same session as any currently selected message.
         let message = composeMessage(with: search, session: conversation.selectedMessage?.session)
         
+        var datesString = ""
+        if let checkin = search.checkin, checkout = search.checkout {
+            datesString = "\(checkin.humanDescription) to \(checkout.humanDescription)"
+        }
+        
         // Add the message to the conversation.
-        conversation.insert(message, localizedChangeDescription: "from \(search.checkin?.humanDescription) to \(search.checkout?.humanDescription) for \(search.guests) Guest") { error in
+        conversation.insert(message, localizedChangeDescription: "\(datesString) for \(search.guests) Guest. Offer: \(search.selectedOfferPrice!) per person") { error in
             if let error = error {
                 print(error)
             }
