@@ -84,6 +84,8 @@ class OfferListVC: UITableViewController {
         let offer = offers![indexPath.row]
         search?.selectedOfferID = offer.id
         search?.selectedOfferImageURL = offer.imageURL
+        search?.selectedOfferPrice = offer.price
+        search?.selectedOfferName = offer.name
 
         delegate?.offerDidSelected(search: search!)
     }
