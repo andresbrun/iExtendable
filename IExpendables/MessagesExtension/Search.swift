@@ -14,6 +14,7 @@ struct Search {
     var checkin: NSDate?
     var checkout: NSDate?
     var selectedOfferID: String?
+    var selectedOfferImageURL: String?
 }
 
 extension Search {
@@ -32,6 +33,9 @@ extension Search {
         if let selectedOfferID = selectedOfferID {
             items.append(URLQueryItem(name: "selectedOfferID", value: selectedOfferID))
         }
+        if let selectedOfferImageURL = selectedOfferImageURL {
+            items.append(URLQueryItem(name: "selectedOfferImageURL", value: selectedOfferImageURL))
+        }
         items.append(URLQueryItem(name: "guests", value: String(guests)))
         
         return items
@@ -43,6 +47,7 @@ extension Search {
         var checkin: NSDate?
         var checkout: NSDate?
         var selectedOfferID: String?
+        var selectedOfferImageURL: String?
         
         for queryItem in queryItems {
             guard let value = queryItem.value else { continue }
@@ -61,6 +66,9 @@ extension Search {
             if queryItem.name == "selectedOfferID" {
                 selectedOfferID = value
             }
+            if queryItem.name == "selectedOfferImageURL" {
+                selectedOfferImageURL = value
+            }
             if queryItem.name == "guests" {
                 guests = Int(value) ?? 2
             }
@@ -72,5 +80,6 @@ extension Search {
         self.checkin = checkin
         self.checkout = checkout
         self.selectedOfferID = selectedOfferID
+        self.selectedOfferImageURL = selectedOfferImageURL
     }
 }
