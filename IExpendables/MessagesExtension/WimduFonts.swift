@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-let regularFontName = "OpenSans"
-let semiboldFontName = "OpenSans-Semibold"
-let lightFontName = "OpenSans-Light"
+let regularFontName = "Avenir-Medium"
+let semiboldFontName = "Avenir-Heavy"
+let lightFontName = "Avenir-Light"
 
 enum WimduFont {
     case Title
