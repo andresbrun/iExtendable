@@ -12,6 +12,8 @@ class GuestsCountViewController: UIViewController, SearchParameterViewController
     
     var search: Search?
     var completion: ((Void) -> ())?
+    
+    func configure() { }
 }
 
 extension GuestsCountViewController: UIPickerViewDelegate, UIPickerViewDataSource {

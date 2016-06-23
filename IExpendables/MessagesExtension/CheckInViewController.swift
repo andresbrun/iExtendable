@@ -12,4 +12,20 @@ class CheckInViewController: UIViewController, SearchParameterViewController {
     
     var search: Search?
     var completion: ((Void) -> ())?
+    @IBOutlet weak var pickerView: UIDatePicker! {
+        didSet {
+            pickerView.minimumDate = Date()
+        }
+    }
+    
+    func configure() {
+        guard let checkin = search?.checkin else { return }
+        pickerView.date = checkin
+    }
+    
+    @IBAction func pickerValueChanged(picker: UIDatePicker) {
+        search?.checkin = picker.date
+        search?.checkout = nil
+        completion?()
+    }
 }

@@ -12,11 +12,13 @@ import UIKit
 protocol SearchParameterViewController {
     var search: Search? { get set }
     var completion: ((Void) -> ())? { get set }
+    func configure()
 }
 
 class SearchVC: UIViewController {
     
     var search: Search!
+    var viewControllers = [SearchParameterViewController]()
     
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var checkInTextField: UITextField!
@@ -35,13 +37,14 @@ class SearchVC: UIViewController {
         return controller
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         updateSearch()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if var searchParameterViewController = segue.destinationViewController as? SearchParameterViewController {
+            viewControllers.append(searchParameterViewController)
             searchParameterViewController.search = search
             searchParameterViewController.completion = { [weak self] in
                 self?.updateSearch()
@@ -70,6 +73,7 @@ class SearchVC: UIViewController {
         checkInView.isHidden = checkInView != view
         checkOutView.isHidden = checkOutView != view
         guestsView.isHidden = guestsView != view
+        viewControllers.forEach { $0.configure() }
     }
     
     private func updateSearch() {
