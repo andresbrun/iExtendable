@@ -51,10 +51,12 @@ class OfferListVC: UITableViewController {
     }
     
     func requestOffers() {
-        let url = URL(string: "https://mapi.staging.wimdu.com/api/v3/hk_search_offers?search_key=1943-berlin&guests=2")
-        // checkin=2016-07-29&checkout-2016-07-30
-        let task = URLSession.shared().dataTask(with: url!) {(data, response, error) in
-            let jsonOffers = try! JSONSerialization.jsonObject(with: data!, options: []) as! [[String: String]]
+        let url = URL(string: "https://mapi.staging.wimdu.com/api/v3/hk_search_offers")!
+        var urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+        urlComponent.queryItems = search?.APIqueryItems
+        
+        let task = URLSession.shared().dataTask(with: urlComponent.url!) {(data, response, error) in
+            let jsonOffers = try! JSONSerialization.jsonObject(with: data!, options: []) as! Array<Dictionary<String, String>>
             print(jsonOffers)
             DispatchQueue.main.sync {
                 self.offers = jsonOffers.map({ (dictionary) -> Offer in
@@ -87,4 +89,20 @@ class OfferListVC: UITableViewController {
         delegate?.offerDidSelected(search: search!)
     }
 }
-s
+
+extension Search {
+    var APIqueryItems: [URLQueryItem] {
+        var items = [URLQueryItem]()
+        
+        if let checkin = checkin {
+            items.append(URLQueryItem(name: "checkin", value: String(checkin.timeIntervalSince1970)))
+        }
+        if let checkout = checkout {
+            items.append(URLQueryItem(name: "checkout", value: String(checkout.timeIntervalSince1970)))
+        }
+        items.append(URLQueryItem(name: "guests", value: String(guests)))
+        items.append(URLQueryItem(name: "search_key", value: inspirationID ?? "1943-berlin"))
+        
+        return items
+    }
+}
