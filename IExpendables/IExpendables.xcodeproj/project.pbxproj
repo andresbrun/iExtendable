@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B2796301D1BE14300CE623B /* OfferCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27962F1D1BE14300CE623B /* OfferCell.swift */; };
 		8B7B114D1D1BC9E40039704B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7B114C1D1BC9E40039704B /* Assets.xcassets */; };
 		8B7B11541D1BC9E40039704B /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8B7B11531D1BC9E40039704B /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8B7B11591D1BC9E40039704B /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7B11581D1BC9E40039704B /* Messages.framework */; };
@@ -52,6 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B27962F1D1BE14300CE623B /* OfferCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferCell.swift; sourceTree = "<group>"; };
 		8B7B11491D1BC9E40039704B /* IExpendables.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IExpendables.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7B114C1D1BC9E40039704B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B7B114E1D1BC9E40039704B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				C7D1FC691D1BD8E800D2A158 /* AreaParameterTextField.swift */,
 				C7D1FC6B1D1BD8F500D2A158 /* DateParameterTextField.swift */,
 				C7D1FC6D1D1BD91D00D2A158 /* GuestsParameterTextField.swift */,
+				8B27962F1D1BE14300CE623B /* OfferCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				C7D1FC6C1D1BD8F500D2A158 /* DateParameterTextField.swift in Sources */,
 				C7D1FC651D1BD68600D2A158 /* WimduFonts.swift in Sources */,
 				8B7B11741D1BCB9D0039704B /* SearchVC.swift in Sources */,
+				8B2796301D1BE14300CE623B /* OfferCell.swift in Sources */,
 				8B7B11711D1BCB330039704B /* Search.swift in Sources */,
 				C7D1FC641D1BD68600D2A158 /* WimduColors.swift in Sources */,
 				8B7B116D1D1BCAE90039704B /* Inspiration.swift in Sources */,

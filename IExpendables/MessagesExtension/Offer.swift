@@ -10,7 +10,7 @@ import Foundation
 
 struct Offer {
     let name: String
-    let price: Double
+    let price: String
     let imageURL: String
     let id: String
 }
