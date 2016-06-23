@@ -18,6 +18,10 @@
 		8B7B11711D1BCB330039704B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B11701D1BCB330039704B /* Search.swift */; };
 		8B7B11741D1BCB9D0039704B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B11731D1BCB9D0039704B /* SearchVC.swift */; };
 		8B7B11761D1BCBA70039704B /* OfferListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B11751D1BCBA70039704B /* OfferListVC.swift */; };
+		C7D1FC5F1D1BD61200D2A158 /* SearchParameterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC5E1D1BD61200D2A158 /* SearchParameterTextField.swift */; };
+		C7D1FC641D1BD68600D2A158 /* WimduColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC621D1BD68600D2A158 /* WimduColors.swift */; };
+		C7D1FC651D1BD68600D2A158 /* WimduFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC631D1BD68600D2A158 /* WimduFonts.swift */; };
+		C7D1FC681D1BD70F00D2A158 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC671D1BD70F00D2A158 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		8B7B11701D1BCB330039704B /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		8B7B11731D1BCB9D0039704B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		8B7B11751D1BCBA70039704B /* OfferListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferListVC.swift; sourceTree = "<group>"; };
+		C7D1FC5E1D1BD61200D2A158 /* SearchParameterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchParameterTextField.swift; sourceTree = "<group>"; };
+		C7D1FC621D1BD68600D2A158 /* WimduColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WimduColors.swift; sourceTree = "<group>"; };
+		C7D1FC631D1BD68600D2A158 /* WimduFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WimduFonts.swift; sourceTree = "<group>"; };
+		C7D1FC671D1BD70F00D2A158 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				8B7B11771D1BCBAD0039704B /* ViewControllers */,
+				C7D1FC601D1BD62600D2A158 /* Views */,
+				C7D1FC611D1BD67D00D2A158 /* Style */,
+				C7D1FC661D1BD6DC00D2A158 /* Extensions */,
 				8B7B115D1D1BC9E40039704B /* MainInterface.storyboard */,
 				8B7B11601D1BC9E40039704B /* Assets.xcassets */,
 				8B7B11621D1BC9E40039704B /* Info.plist */,
@@ -139,6 +150,31 @@
 				8B7B11751D1BCBA70039704B /* OfferListVC.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C7D1FC601D1BD62600D2A158 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C7D1FC5E1D1BD61200D2A158 /* SearchParameterTextField.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C7D1FC611D1BD67D00D2A158 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				C7D1FC621D1BD68600D2A158 /* WimduColors.swift */,
+				C7D1FC631D1BD68600D2A158 /* WimduFonts.swift */,
+			);
+			name = Style;
+			sourceTree = "<group>";
+		};
+		C7D1FC661D1BD6DC00D2A158 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C7D1FC671D1BD70F00D2A158 /* ColorExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,10 +284,14 @@
 			files = (
 				8B7B116F1D1BCB080039704B /* Offer.swift in Sources */,
 				8B7B11761D1BCBA70039704B /* OfferListVC.swift in Sources */,
+				C7D1FC651D1BD68600D2A158 /* WimduFonts.swift in Sources */,
 				8B7B11741D1BCB9D0039704B /* SearchVC.swift in Sources */,
 				8B7B11711D1BCB330039704B /* Search.swift in Sources */,
+				C7D1FC641D1BD68600D2A158 /* WimduColors.swift in Sources */,
 				8B7B116D1D1BCAE90039704B /* Inspiration.swift in Sources */,
+				C7D1FC5F1D1BD61200D2A158 /* SearchParameterTextField.swift in Sources */,
 				8B7B115C1D1BC9E40039704B /* MessagesViewController.swift in Sources */,
+				C7D1FC681D1BD70F00D2A158 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +475,7 @@
 				8B7B11671D1BC9E40039704B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B7B11691D1BC9E40039704B /* Build configuration list for PBXNativeTarget "IExpendables" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +484,7 @@
 				8B7B116B1D1BC9E40039704B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
