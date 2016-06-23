@@ -78,25 +78,15 @@ class MessagesViewController: MSMessagesAppViewController {
 extension MessagesViewController {
     private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
         // Determine the controller to present.
-        let controller: UIViewController = SearchVC.initFromStoryboard(search: Search())
-//        if presentationStyle == .compact {
-//            // Show a list of previously created ice creams.
-//            controller = SearchVC.initFromStoryboard(search: Search())
-//        }
-//        else {
-//            /*
-//             Parse an `IceCream` from the conversation's `selectedMessage` or
-//             create a new `IceCream` if there isn't one associated with the message.
-//             */
-//            let iceCream = IceCream(message: conversation.selectedMessage) ?? IceCream()
-//            
-//            if iceCream.isComplete {
-//                controller = instantiateCompletedIceCreamController(with: iceCream)
-//            }
-//            else {
-//                controller = instantiateBuildIceCreamController(with: iceCream)
-//            }
-//        }
+        let search = Search(message: conversation.selectedMessage) ?? Search()
+        let controller: UIViewController
+        
+        if presentationStyle == .compact {
+            controller = SearchVC.initFromStoryboard(search: search)
+        } else {
+            controller = OfferListVC.initFromStoryboard(search: search)
+        }
+
         
         // Remove any existing child controllers.
         for child in childViewControllers {

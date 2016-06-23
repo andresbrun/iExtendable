@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Messages
 
 struct Search {
     var guests: Int = 2
@@ -15,6 +16,12 @@ struct Search {
     var checkout: Date?
     var selectedOfferID: String?
     var selectedOfferImageURL: String?
+}
+
+extension Search {
+    var isSearchable: Bool {
+        return inspirationID != nil
+    }
 }
 
 extension Search {
@@ -57,11 +64,11 @@ extension Search {
             }
             if queryItem.name == "checkin" {
                 guard let timeInterval = Double(value) else { return }
-                checkin = NSDate(timeIntervalSince1970: TimeInterval(timeInterval))
+                checkin = Date(timeIntervalSince1970: TimeInterval(timeInterval))
             }
             if queryItem.name == "checkout" {
                 guard let timeInterval = Double(value) else { return }
-                checkout = NSDate(timeIntervalSince1970: TimeInterval(timeInterval))
+                checkout = Date(timeIntervalSince1970: TimeInterval(timeInterval))
             }
             if queryItem.name == "selectedOfferID" {
                 selectedOfferID = value
@@ -81,5 +88,14 @@ extension Search {
         self.checkout = checkout
         self.selectedOfferID = selectedOfferID
         self.selectedOfferImageURL = selectedOfferImageURL
+    }
+}
+
+extension Search {
+    init?(message: MSMessage?) {
+        guard let messageURL = message?.url else { return nil }
+        guard let urlComponents = NSURLComponents(url: messageURL, resolvingAgainstBaseURL: false), queryItems = urlComponents.queryItems else { return nil }
+        
+        self.init(queryItems: queryItems)
     }
 }
