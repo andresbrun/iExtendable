@@ -22,6 +22,9 @@
 		C7D1FC641D1BD68600D2A158 /* WimduColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC621D1BD68600D2A158 /* WimduColors.swift */; };
 		C7D1FC651D1BD68600D2A158 /* WimduFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC631D1BD68600D2A158 /* WimduFonts.swift */; };
 		C7D1FC681D1BD70F00D2A158 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC671D1BD70F00D2A158 /* ColorExtension.swift */; };
+		C7D1FC6A1D1BD8E800D2A158 /* AreaParameterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC691D1BD8E800D2A158 /* AreaParameterTextField.swift */; };
+		C7D1FC6C1D1BD8F500D2A158 /* DateParameterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC6B1D1BD8F500D2A158 /* DateParameterTextField.swift */; };
+		C7D1FC6E1D1BD91D00D2A158 /* GuestsParameterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC6D1D1BD91D00D2A158 /* GuestsParameterTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		C7D1FC621D1BD68600D2A158 /* WimduColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WimduColors.swift; sourceTree = "<group>"; };
 		C7D1FC631D1BD68600D2A158 /* WimduFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WimduFonts.swift; sourceTree = "<group>"; };
 		C7D1FC671D1BD70F00D2A158 /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		C7D1FC691D1BD8E800D2A158 /* AreaParameterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaParameterTextField.swift; sourceTree = "<group>"; };
+		C7D1FC6B1D1BD8F500D2A158 /* DateParameterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateParameterTextField.swift; sourceTree = "<group>"; };
+		C7D1FC6D1D1BD91D00D2A158 /* GuestsParameterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestsParameterTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				C7D1FC5E1D1BD61200D2A158 /* SearchParameterTextField.swift */,
+				C7D1FC691D1BD8E800D2A158 /* AreaParameterTextField.swift */,
+				C7D1FC6B1D1BD8F500D2A158 /* DateParameterTextField.swift */,
+				C7D1FC6D1D1BD91D00D2A158 /* GuestsParameterTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -284,6 +293,8 @@
 			files = (
 				8B7B116F1D1BCB080039704B /* Offer.swift in Sources */,
 				8B7B11761D1BCBA70039704B /* OfferListVC.swift in Sources */,
+				C7D1FC6A1D1BD8E800D2A158 /* AreaParameterTextField.swift in Sources */,
+				C7D1FC6C1D1BD8F500D2A158 /* DateParameterTextField.swift in Sources */,
 				C7D1FC651D1BD68600D2A158 /* WimduFonts.swift in Sources */,
 				8B7B11741D1BCB9D0039704B /* SearchVC.swift in Sources */,
 				8B7B11711D1BCB330039704B /* Search.swift in Sources */,
@@ -292,6 +303,7 @@
 				C7D1FC5F1D1BD61200D2A158 /* SearchParameterTextField.swift in Sources */,
 				8B7B115C1D1BC9E40039704B /* MessagesViewController.swift in Sources */,
 				C7D1FC681D1BD70F00D2A158 /* ColorExtension.swift in Sources */,
+				C7D1FC6E1D1BD91D00D2A158 /* GuestsParameterTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
