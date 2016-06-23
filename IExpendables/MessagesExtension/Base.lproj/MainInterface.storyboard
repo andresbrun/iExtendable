@@ -7,21 +7,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Offer ListVC-->
+        <!--Offers-->
         <scene sceneID="JXs-aJ-N2x">
             <objects>
-                <tableViewController storyboardIdentifier="OfferListVC" id="ot0-Si-3uS" customClass="OfferListVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ius-JN-1wd">
+                <tableViewController storyboardIdentifier="OfferListVC" title="Offers" extendedLayoutIncludesOpaqueBars="YES" id="ot0-Si-3uS" customClass="OfferListVC" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ius-JN-1wd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.72941176470000002" green="0.41176470590000003" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfferCell" rowHeight="150" id="t5W-tB-ejY" customClass="OfferCell" customModule="MessagesExtension" customModuleProvider="target">
-                                <frame key="frameInset" minY="28" width="375" height="150"/>
+                                <frame key="frameInset" minY="48" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t5W-tB-ejY" id="maB-QI-VIF">
-                                    <frame key="frameInset" width="375" height="149"/>
+                                    <frame key="frameInset" width="375" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-4Z-py5"/>

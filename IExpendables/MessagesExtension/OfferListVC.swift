@@ -37,6 +37,11 @@ class OfferListVC: UITableViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.rowHeight = 150
+    }
+    
     static func initFromStoryboard(search: Search, delegate: OfferListVCDelegate) -> OfferListVC {
         let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "OfferListVC") as? OfferListVC else { fatalError("Unable to instantiate a CompletedIceCreamViewController from the storyboard") }
@@ -46,12 +51,16 @@ class OfferListVC: UITableViewController {
     }
     
     func requestOffers() {
-        let url = URL(string: "http://www.stackoverflow.com")
-        
+        let url = URL(string: "https://mapi.staging.wimdu.com/api/v3/hk_search_offers?search_key=1943-berlin&guests=2")
+        // checkin=2016-07-29&checkout-2016-07-30
         let task = URLSession.shared().dataTask(with: url!) {(data, response, error) in
-//            let string = NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
-            let json = try! JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-            // offers = "whatever"
+            let jsonOffers = try! JSONSerialization.jsonObject(with: data!, options: []) as! [[String: String]]
+            print(jsonOffers)
+            DispatchQueue.main.sync {
+                self.offers = jsonOffers.map({ (dictionary) -> Offer in
+                    return Offer(name: dictionary["title"]!, price: dictionary["price"]!, imageURL: dictionary["photo"]!, id: dictionary["id"]!)
+                })
+            }
         }
         
         task.resume()
@@ -78,3 +87,4 @@ class OfferListVC: UITableViewController {
         delegate?.offerDidSelected(search: search!)
     }
 }
+s
