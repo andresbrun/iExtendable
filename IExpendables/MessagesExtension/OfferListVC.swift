@@ -80,7 +80,6 @@ class OfferListVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
         
         let offer = offers![indexPath.row]
         search?.selectedOfferID = offer.id
