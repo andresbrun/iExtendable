@@ -28,6 +28,8 @@ class MessagesViewController: MSMessagesAppViewController {
         // This will happen when the extension is about to present UI.
         
         // Use this method to configure the extension and restore previously stored state.
+        // Present the view controller appropriate for the conversation and presentation style.
+        presentViewController(for: conversation, with: presentationStyle)
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -58,9 +60,11 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
+        guard let conversation = activeConversation else { fatalError("Expected an active converstation") }
         // Called before the extension transitions to a new presentation style.
     
         // Use this method to prepare for the change in presentation style.
+        presentViewController(for: conversation, with: presentationStyle)
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
@@ -69,4 +73,66 @@ class MessagesViewController: MSMessagesAppViewController {
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
 
+}
+
+extension MessagesViewController {
+    private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
+        // Determine the controller to present.
+        let controller: UIViewController = SearchVC.initFromStoryboard(search: Search())
+//        if presentationStyle == .compact {
+//            // Show a list of previously created ice creams.
+//            controller = SearchVC.initFromStoryboard(search: Search())
+//        }
+//        else {
+            /*
+             Parse an `IceCream` from the conversation's `selectedMessage` or
+             create a new `IceCream` if there isn't one associated with the message.
+             */
+//            let iceCream = IceCream(message: conversation.selectedMessage) ?? IceCream()
+//            
+//            if iceCream.isComplete {
+//                controller = instantiateCompletedIceCreamController(with: iceCream)
+//            }
+//            else {
+//                controller = instantiateBuildIceCreamController(with: iceCream)
+//            }
+//        }
+        
+        // Remove any existing child controllers.
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+        
+        // Embed the new controller.
+        addChildViewController(controller)
+        
+        controller.view.frame = view.bounds
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(controller.view)
+        
+        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        controller.didMove(toParentViewController: self)
+    }
+    
+//    private func composeMessage(with search: Search, caption: String, session: MSSession? = nil) -> MSMessage {
+//        var components = URLComponents()
+//        components.queryItems = iceCream.queryItems
+//        
+//        let layout = MSMessageTemplateLayout()
+//        layout.image = iceCream.renderSticker(opaque: true)
+//        layout.caption = caption
+//        
+//        let message = MSMessage(session: session ?? MSSession())
+//        message.url = components.url!
+//        message.layout = layout
+//        
+//        return message
+//    }
+    
 }
