@@ -18,7 +18,7 @@ class GuestsCountViewController: UIViewController, SearchParameterViewController
 
 extension GuestsCountViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 20
+        return 15
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
