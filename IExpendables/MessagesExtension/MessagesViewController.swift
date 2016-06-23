@@ -129,7 +129,11 @@ extension MessagesViewController {
             let data = try! Data(contentsOf: imageURL)
             layout.image = UIImage(data: data)
         }
-        layout.caption = caption
+        layout.imageTitle = caption
+        layout.caption = search.checkin?.humanDescription
+        layout.trailingCaption = search.checkout?.humanDescription
+        
+        layout.subcaption = "\(search.guests) guests"
         
         let message = MSMessage(session: session ?? MSSession())
         message.url = components.url!
@@ -137,7 +141,6 @@ extension MessagesViewController {
         
         return message
     }
-    
 }
 
 extension MessagesViewController {
@@ -146,5 +149,15 @@ extension MessagesViewController {
     
     func buildOfferListViewController(_ controller: OfferListVC, didSelect search: Search) {
         
+    }
+}
+
+extension Date {
+    var humanDescription: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .mediumStyle
+        formatter.timeStyle = .noStyle
+        
+        return formatter.string(from: self)
     }
 }

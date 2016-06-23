@@ -11,8 +11,8 @@ import Foundation
 struct Search {
     var guests: Int = 2
     var inspirationID: String?
-    var checkin: NSDate?
-    var checkout: NSDate?
+    var checkin: Date?
+    var checkout: Date?
     var selectedOfferID: String?
     var selectedOfferImageURL: String?
 }
@@ -44,8 +44,8 @@ extension Search {
     init?(queryItems: [URLQueryItem]) {
         var guests: Int = 2
         var inspirationID: String?
-        var checkin: NSDate?
-        var checkout: NSDate?
+        var checkin: Date?
+        var checkout: Date?
         var selectedOfferID: String?
         var selectedOfferImageURL: String?
         
