@@ -142,7 +142,7 @@ extension MessagesViewController: OfferListVCDelegate {
         let message = composeMessage(with: search, session: conversation.selectedMessage?.session)
         
         // Add the message to the conversation.
-        conversation.insert(message, localizedChangeDescription: "Changed Description??") { error in
+        conversation.insert(message, localizedChangeDescription: "\(search.checkin?.humanDescription) - \(search.checkout?.humanDescription) | \(search.guests) Guest") { error in
             if let error = error {
                 print(error)
             }
