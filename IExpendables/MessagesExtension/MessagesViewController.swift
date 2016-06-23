@@ -72,7 +72,7 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
-
+    
 }
 
 extension MessagesViewController {
@@ -133,14 +133,6 @@ extension MessagesViewController {
     }
 }
 
-extension MessagesViewController {
-    func buildSearchViewController(_ controller: SearchVC, didSelect search: Search) {
-    }
-    
-    func buildOfferListViewController(_ controller: OfferListVC, didSelect search: Search) {
-        
-    }
-}
 
 extension MessagesViewController: OfferListVCDelegate {
     func offerDidSelected(search: Search) {
