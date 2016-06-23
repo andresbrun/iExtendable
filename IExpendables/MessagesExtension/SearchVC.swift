@@ -15,9 +15,17 @@ protocol SearchParameterViewController {
     func configure()
 }
 
+enum CurrentView {
+    case Cities
+    case CheckIn
+    case CheckOut
+    case Guests
+}
+
 class SearchVC: UIViewController {
     
     var search: Search!
+    var currentView = CurrentView.Cities
     var viewControllers = [SearchParameterViewController]()
     
     @IBOutlet weak var cityTextField: UITextField!
@@ -37,6 +45,18 @@ class SearchVC: UIViewController {
         return controller
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        DispatchQueue.main.after(when: .now() + 0.5) { [weak self] in
+            self?.updateSearch()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateSearch()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         updateSearch()
@@ -53,18 +73,22 @@ class SearchVC: UIViewController {
     }
     
     @IBAction func cityTextFieldDidPressed() {
+        currentView = .Cities
         showView(view: citiesView)
     }
     
     @IBAction func checkInTextFieldDidPressed() {
+        currentView = .CheckIn
         showView(view: checkInView)
     }
     
     @IBAction func checkOutTextFieldDidPressed() {
+        currentView = .CheckOut
         showView(view: checkOutView)
     }
     
     @IBAction func guestsTextFieldDidPressed() {
+        currentView = .Guests
         showView(view: guestsView)
     }
     
@@ -74,18 +98,23 @@ class SearchVC: UIViewController {
         checkOutView.isHidden = checkOutView != view
         guestsView.isHidden = guestsView != view
         viewControllers.forEach { $0.configure() }
+        updateSearch()
     }
     
     private func updateSearch() {
-        update(textField: cityTextField, value: search.inspirationName)
-        update(textField: checkInTextField, value: search.checkin?.simpleString)
-        update(textField: checkOutTextField, value: search.checkout?.simpleString)
-        update(textField: guestsTextField, value: String(search.guests))
+        update(textField: cityTextField, value: search.inspirationName, selected: currentView == .Cities)
+        update(textField: checkInTextField, value: search.checkin?.simpleString, selected: currentView == .CheckIn)
+        update(textField: checkOutTextField, value: search.checkout?.simpleString, selected: currentView == .CheckOut)
+        update(textField: guestsTextField, value: String(search.guests), selected: currentView == .Guests)
     }
     
-    private func update(textField: UITextField, value: String?) {
+    private func update(textField: UITextField, value: String?, selected: Bool) {
         textField.text = value ?? textField.placeholder
-        textField.textColor = value != nil ? .wValleyGrey() : .lightGray()
+        if selected {
+            textField.textColor = .wAirbnbPink()
+        } else {
+            textField.textColor = value != nil ? .wValleyGrey() : .lightGray()
+        }
         textField.font = WimduFont.Small3.font
     }
 }
