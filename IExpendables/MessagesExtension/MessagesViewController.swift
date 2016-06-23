@@ -84,10 +84,10 @@ extension MessagesViewController {
 //            controller = SearchVC.initFromStoryboard(search: Search())
 //        }
 //        else {
-            /*
-             Parse an `IceCream` from the conversation's `selectedMessage` or
-             create a new `IceCream` if there isn't one associated with the message.
-             */
+//            /*
+//             Parse an `IceCream` from the conversation's `selectedMessage` or
+//             create a new `IceCream` if there isn't one associated with the message.
+//             */
 //            let iceCream = IceCream(message: conversation.selectedMessage) ?? IceCream()
 //            
 //            if iceCream.isComplete {
@@ -120,19 +120,31 @@ extension MessagesViewController {
         controller.didMove(toParentViewController: self)
     }
     
-//    private func composeMessage(with search: Search, caption: String, session: MSSession? = nil) -> MSMessage {
-//        var components = URLComponents()
-//        components.queryItems = iceCream.queryItems
-//        
-//        let layout = MSMessageTemplateLayout()
-//        layout.image = iceCream.renderSticker(opaque: true)
-//        layout.caption = caption
-//        
-//        let message = MSMessage(session: session ?? MSSession())
-//        message.url = components.url!
-//        message.layout = layout
-//        
-//        return message
-//    }
+    private func composeMessage(with search: Search, caption: String, session: MSSession? = nil) -> MSMessage {
+        var components = URLComponents()
+        components.queryItems = search.queryItems
+        
+        let layout = MSMessageTemplateLayout()
+        if let urlString = search.selectedOfferImageURL, imageURL = URL(string: urlString) {
+            let data = try! Data(contentsOf: imageURL)
+            layout.image = UIImage(data: data)
+        }
+        layout.caption = caption
+        
+        let message = MSMessage(session: session ?? MSSession())
+        message.url = components.url!
+        message.layout = layout
+        
+        return message
+    }
     
+}
+
+extension MessagesViewController {
+    func buildSearchViewController(_ controller: SearchVC, didSelect search: Search) {
+    }
+    
+    func buildOfferListViewController(_ controller: OfferListVC, didSelect search: Search) {
+        
+    }
 }
