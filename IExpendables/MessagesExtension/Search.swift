@@ -11,8 +11,8 @@ import Messages
 
 class Search {
     var guests: Int = 2
-    var checkin: Date?
-    var checkout: Date?
+    var checkin: Date? = Date().addingTimeInterval(10000)
+    var checkout: Date? = Date().addingTimeInterval(20000)
     
     var inspirationKey: String?
     var inspirationName: String?
