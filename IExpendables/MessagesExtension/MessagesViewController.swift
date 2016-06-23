@@ -84,10 +84,10 @@ extension MessagesViewController {
 //            controller = SearchVC.initFromStoryboard(search: Search())
 //        }
 //        else {
-            /*
-             Parse an `IceCream` from the conversation's `selectedMessage` or
-             create a new `IceCream` if there isn't one associated with the message.
-             */
+//            /*
+//             Parse an `IceCream` from the conversation's `selectedMessage` or
+//             create a new `IceCream` if there isn't one associated with the message.
+//             */
 //            let iceCream = IceCream(message: conversation.selectedMessage) ?? IceCream()
 //            
 //            if iceCream.isComplete {

@@ -12,4 +12,5 @@ struct Offer {
     let name: String
     let price: Double
     let imageURL: String
+    let id: String
 }
