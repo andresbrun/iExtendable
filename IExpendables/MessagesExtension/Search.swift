@@ -11,19 +11,21 @@ import Messages
 
 class Search {
     var guests: Int = 2
-    var inspirationID: String?
     var checkin: Date?
     var checkout: Date?
+    
+    var inspirationKey: String?
+    var inspirationName: String?
+    
     var selectedOfferID: String?
     var selectedOfferImageURL: String?
-    var inspiration: Inspiration?
     var selectedOfferPrice: String?
     var selectedOfferName: String?
 }
 
 extension Search {
     var isSearchable: Bool {
-        return inspirationID != nil
+        return inspirationKey != nil
     }
 }
 
@@ -31,8 +33,8 @@ extension Search {
     var queryItems: [URLQueryItem] {
         var items = [URLQueryItem]()
         
-        if let inspirationID = inspirationID {
-            items.append(URLQueryItem(name: "inspirationID", value: inspirationID))
+        if let inspirationKey = inspirationKey {
+            items.append(URLQueryItem(name: "inspirationKey", value: inspirationKey))
         }
         if let checkin = checkin {
             items.append(URLQueryItem(name: "checkin", value: String(checkin.timeIntervalSince1970)))
@@ -60,7 +62,7 @@ extension Search {
     convenience init?(queryItems: [URLQueryItem]) {
         self.init()
         var guests: Int = 2
-        var inspirationID: String?
+        var inspirationKey: String?
         var checkin: Date?
         var checkout: Date?
         var selectedOfferID: String?
@@ -69,8 +71,8 @@ extension Search {
         for queryItem in queryItems {
             guard let value = queryItem.value else { continue }
             
-            if queryItem.name == "inspirationID" {
-                inspirationID = value
+            if queryItem.name == "inspirationKey" {
+                inspirationKey = value
             }
             if queryItem.name == "checkin" {
                 guard let timeInterval = Double(value) else { return }
@@ -99,7 +101,7 @@ extension Search {
         }
         
         self.guests = guests
-        self.inspirationID = inspirationID
+        self.inspirationKey = inspirationKey
         self.checkin = checkin
         self.checkout = checkout
         self.selectedOfferID = selectedOfferID
