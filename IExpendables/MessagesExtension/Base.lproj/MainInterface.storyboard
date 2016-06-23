@@ -64,6 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="67" y="-10"/>
         </scene>
         <!--SearchVC-->
         <scene sceneID="RbV-Qo-GfZ">
@@ -74,7 +75,7 @@
                         <viewControllerLayoutGuide type="bottom" id="sJ7-hg-paR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HAJ-wh-Hpr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="AsN-Ph-Z9d">
@@ -82,6 +83,9 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Azc-Wt-GWk" userLabel="Area" customClass="AreaParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="cityTextFieldDidPressed" destination="Dqs-vY-XGb" eventType="touchUpInside" id="LtO-pG-dbT"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-VI-XZV" userLabel="separator">
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -96,6 +100,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCondensed" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="checkInTextFieldDidPressed" destination="Dqs-vY-XGb" eventType="touchUpInside" id="dks-Fy-Oec"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sx6-Vv-f6k" userLabel="separator">
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,6 +117,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isCondensed" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="checkOutTextFieldDidPressed" destination="Dqs-vY-XGb" eventType="touchUpInside" id="ObN-S9-cIn"/>
+                                        </connections>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5D-PP-czA" userLabel="separator">
                                         <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -125,6 +135,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="includeGuestText" value="NO"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="guestsTextFieldDidPressed" destination="Dqs-vY-XGb" eventType="touchUpInside" id="Cxv-9r-BDc"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -145,17 +158,193 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4M1-ce-kuT" userLabel="separator">
+                                <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="YvA-aB-cLh"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptz-Pq-KNY">
+                                <connections>
+                                    <segue destination="nmq-Uo-VOC" kind="embed" id="CHq-eH-IaR"/>
+                                </connections>
+                            </containerView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylR-qL-0YG">
+                                <connections>
+                                    <segue destination="UGa-aB-jcC" kind="embed" id="oYL-QW-k10"/>
+                                </connections>
+                            </containerView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZb-3x-ePN">
+                                <connections>
+                                    <segue destination="Q9y-Kw-Dlh" kind="embed" id="pYu-HZ-Hea"/>
+                                </connections>
+                            </containerView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qLD-A1-aMC">
+                                <connections>
+                                    <segue destination="7CX-Hl-eRd" kind="embed" id="bPT-0k-gxB"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="qLD-A1-aMC" firstAttribute="leading" secondItem="HAJ-wh-Hpr" secondAttribute="leading" id="27F-7x-sJ6"/>
                             <constraint firstItem="AsN-Ph-Z9d" firstAttribute="top" secondItem="HAJ-wh-Hpr" secondAttribute="top" id="3BC-51-ojh"/>
+                            <constraint firstItem="ylR-qL-0YG" firstAttribute="leading" secondItem="HAJ-wh-Hpr" secondAttribute="leading" id="3xO-iD-H1y"/>
+                            <constraint firstItem="sJ7-hg-paR" firstAttribute="top" secondItem="ptz-Pq-KNY" secondAttribute="bottom" id="4Sk-fz-b8f"/>
+                            <constraint firstItem="sJ7-hg-paR" firstAttribute="top" secondItem="ylR-qL-0YG" secondAttribute="bottom" id="4zi-Wf-YGE"/>
+                            <constraint firstAttribute="trailing" secondItem="ylR-qL-0YG" secondAttribute="trailing" id="7gW-da-BQb"/>
+                            <constraint firstItem="qLD-A1-aMC" firstAttribute="top" secondItem="4M1-ce-kuT" secondAttribute="bottom" id="9H2-sc-9ez"/>
+                            <constraint firstItem="ptz-Pq-KNY" firstAttribute="leading" secondItem="HAJ-wh-Hpr" secondAttribute="leading" id="A6p-Gu-9qS"/>
+                            <constraint firstItem="sJ7-hg-paR" firstAttribute="top" secondItem="FZb-3x-ePN" secondAttribute="bottom" id="Gbb-TI-7mL"/>
+                            <constraint firstItem="FZb-3x-ePN" firstAttribute="leading" secondItem="HAJ-wh-Hpr" secondAttribute="leading" id="JqA-tC-ATM"/>
+                            <constraint firstAttribute="trailing" secondItem="FZb-3x-ePN" secondAttribute="trailing" id="Luu-tr-qzR"/>
+                            <constraint firstItem="sJ7-hg-paR" firstAttribute="top" secondItem="qLD-A1-aMC" secondAttribute="bottom" id="R1c-i5-HrV"/>
+                            <constraint firstItem="FZb-3x-ePN" firstAttribute="top" secondItem="4M1-ce-kuT" secondAttribute="bottom" id="VWP-L4-bqo"/>
                             <constraint firstAttribute="trailing" secondItem="AsN-Ph-Z9d" secondAttribute="trailing" constant="5" id="Wts-GY-yNZ"/>
+                            <constraint firstItem="4M1-ce-kuT" firstAttribute="leading" secondItem="HAJ-wh-Hpr" secondAttribute="leading" id="cjD-eo-a5N"/>
+                            <constraint firstAttribute="trailing" secondItem="qLD-A1-aMC" secondAttribute="trailing" id="daL-sA-srZ"/>
+                            <constraint firstItem="ptz-Pq-KNY" firstAttribute="top" secondItem="4M1-ce-kuT" secondAttribute="bottom" id="mgO-zf-LB1"/>
+                            <constraint firstAttribute="trailing" secondItem="4M1-ce-kuT" secondAttribute="trailing" id="nPz-Z9-XPb"/>
+                            <constraint firstItem="4M1-ce-kuT" firstAttribute="top" secondItem="AsN-Ph-Z9d" secondAttribute="bottom" id="p0t-fc-ps7"/>
                             <constraint firstItem="AsN-Ph-Z9d" firstAttribute="leading" secondItem="HAJ-wh-Hpr" secondAttribute="leading" constant="5" id="vaB-HO-1SX"/>
+                            <constraint firstAttribute="trailing" secondItem="ptz-Pq-KNY" secondAttribute="trailing" id="yU2-6g-MRy"/>
+                            <constraint firstItem="ylR-qL-0YG" firstAttribute="top" secondItem="4M1-ce-kuT" secondAttribute="bottom" id="zGW-hD-fPg"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <outlet property="checkInTextField" destination="G5q-tE-MR8" id="FoS-If-fzL"/>
+                        <outlet property="checkInView" destination="ylR-qL-0YG" id="8A8-ch-ySD"/>
+                        <outlet property="checkOutTextField" destination="hAh-2m-2n0" id="fXY-kQ-X1p"/>
+                        <outlet property="checkOutView" destination="FZb-3x-ePN" id="8kF-CP-faW"/>
+                        <outlet property="citiesView" destination="ptz-Pq-KNY" id="RP7-Db-Sio"/>
+                        <outlet property="cityTextField" destination="Azc-Wt-GWk" id="bDC-k1-CEj"/>
+                        <outlet property="guestsTextField" destination="Z6J-EZ-TmC" id="IDS-lo-CNa"/>
+                        <outlet property="guestsView" destination="qLD-A1-aMC" id="HX7-B8-bxZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzC-de-Ad7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="38"/>
+            <point key="canvasLocation" x="847" y="-9"/>
+        </scene>
+        <!--Guests Count View Controller-->
+        <scene sceneID="oI4-d3-dyF">
+            <objects>
+                <viewController id="7CX-Hl-eRd" customClass="GuestsCountViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="doq-ZP-Hfm"/>
+                        <viewControllerLayoutGuide type="bottom" id="RD9-HD-ilp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mDD-OH-LtA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzF-xz-aQb">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hzF-xz-aQb" firstAttribute="centerY" secondItem="mDD-OH-LtA" secondAttribute="centerY" id="2hz-Tv-Azc"/>
+                            <constraint firstItem="hzF-xz-aQb" firstAttribute="centerX" secondItem="mDD-OH-LtA" secondAttribute="centerX" id="a1a-oS-te1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtm-sg-IRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2073" y="229"/>
+        </scene>
+        <!--Check Out View Controller-->
+        <scene sceneID="l3j-jp-xIz">
+            <objects>
+                <viewController id="Q9y-Kw-Dlh" customClass="CheckOutViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x5V-F3-QE3"/>
+                        <viewControllerLayoutGuide type="bottom" id="oQT-1s-Umf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7yZ-Dt-kcg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckOut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2p-iJ-ejz">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="s2p-iJ-ejz" firstAttribute="centerX" secondItem="7yZ-Dt-kcg" secondAttribute="centerX" id="Pxe-VR-Bwf"/>
+                            <constraint firstItem="s2p-iJ-ejz" firstAttribute="centerY" secondItem="7yZ-Dt-kcg" secondAttribute="centerY" id="nLZ-hQ-H51"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ySM-Xg-baz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2073" y="-77"/>
+        </scene>
+        <!--Cities View Controller-->
+        <scene sceneID="XZr-uh-3R7">
+            <objects>
+                <viewController id="nmq-Uo-VOC" customClass="CitiesViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SDq-W4-Buv"/>
+                        <viewControllerLayoutGuide type="bottom" id="bD2-M9-9eN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SW8-TR-csZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJT-jM-ghu">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FJT-jM-ghu" firstAttribute="centerY" secondItem="SW8-TR-csZ" secondAttribute="centerY" id="J5o-gV-qI8"/>
+                            <constraint firstItem="FJT-jM-ghu" firstAttribute="centerX" secondItem="SW8-TR-csZ" secondAttribute="centerX" id="k5o-UG-b8t"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G0T-ww-BTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2073" y="-705"/>
+        </scene>
+        <!--Check In View Controller-->
+        <scene sceneID="weq-R2-hec">
+            <objects>
+                <viewController id="UGa-aB-jcC" customClass="CheckInViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dlH-gz-zHH"/>
+                        <viewControllerLayoutGuide type="bottom" id="eQg-Du-KJO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FJA-OM-4Jp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="255"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lqd-w4-4xH">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lqd-w4-4xH" firstAttribute="centerY" secondItem="FJA-OM-4Jp" secondAttribute="centerY" id="Lv0-cn-32I"/>
+                            <constraint firstItem="Lqd-w4-4xH" firstAttribute="centerX" secondItem="FJA-OM-4Jp" secondAttribute="centerX" id="h1v-uT-N4H"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s4Z-0G-P8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2073" y="-390"/>
         </scene>
     </scenes>
 </document>

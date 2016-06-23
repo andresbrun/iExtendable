@@ -18,6 +18,10 @@
 		8B7B11711D1BCB330039704B /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B11701D1BCB330039704B /* Search.swift */; };
 		8B7B11741D1BCB9D0039704B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B11731D1BCB9D0039704B /* SearchVC.swift */; };
 		8B7B11761D1BCBA70039704B /* OfferListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B11751D1BCBA70039704B /* OfferListVC.swift */; };
+		C7CD53061D1BEA460039697E /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CD53051D1BEA460039697E /* CitiesViewController.swift */; };
+		C7CD530A1D1BEA640039697E /* GuestsCountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CD53091D1BEA640039697E /* GuestsCountViewController.swift */; };
+		C7CD530C1D1BEDA30039697E /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CD530B1D1BEDA30039697E /* CheckInViewController.swift */; };
+		C7CD530E1D1BEDAC0039697E /* CheckOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CD530D1D1BEDAC0039697E /* CheckOutViewController.swift */; };
 		C7D1FC5F1D1BD61200D2A158 /* SearchParameterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC5E1D1BD61200D2A158 /* SearchParameterTextField.swift */; };
 		C7D1FC641D1BD68600D2A158 /* WimduColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC621D1BD68600D2A158 /* WimduColors.swift */; };
 		C7D1FC651D1BD68600D2A158 /* WimduFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D1FC631D1BD68600D2A158 /* WimduFonts.swift */; };
@@ -66,6 +70,10 @@
 		8B7B11701D1BCB330039704B /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		8B7B11731D1BCB9D0039704B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		8B7B11751D1BCBA70039704B /* OfferListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OfferListVC.swift; sourceTree = "<group>"; };
+		C7CD53051D1BEA460039697E /* CitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		C7CD53091D1BEA640039697E /* GuestsCountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestsCountViewController.swift; sourceTree = "<group>"; };
+		C7CD530B1D1BEDA30039697E /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		C7CD530D1D1BEDAC0039697E /* CheckOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckOutViewController.swift; sourceTree = "<group>"; };
 		C7D1FC5E1D1BD61200D2A158 /* SearchParameterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchParameterTextField.swift; sourceTree = "<group>"; };
 		C7D1FC621D1BD68600D2A158 /* WimduColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WimduColors.swift; sourceTree = "<group>"; };
 		C7D1FC631D1BD68600D2A158 /* WimduFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WimduFonts.swift; sourceTree = "<group>"; };
@@ -154,6 +162,10 @@
 				8B7B115B1D1BC9E40039704B /* MessagesViewController.swift */,
 				8B7B11731D1BCB9D0039704B /* SearchVC.swift */,
 				8B7B11751D1BCBA70039704B /* OfferListVC.swift */,
+				C7CD53051D1BEA460039697E /* CitiesViewController.swift */,
+				C7CD530B1D1BEDA30039697E /* CheckInViewController.swift */,
+				C7CD530D1D1BEDAC0039697E /* CheckOutViewController.swift */,
+				C7CD53091D1BEA640039697E /* GuestsCountViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -291,17 +303,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7CD530E1D1BEDAC0039697E /* CheckOutViewController.swift in Sources */,
 				8B7B116F1D1BCB080039704B /* Offer.swift in Sources */,
 				8B7B11761D1BCBA70039704B /* OfferListVC.swift in Sources */,
 				C7D1FC6A1D1BD8E800D2A158 /* AreaParameterTextField.swift in Sources */,
 				C7D1FC6C1D1BD8F500D2A158 /* DateParameterTextField.swift in Sources */,
 				C7D1FC651D1BD68600D2A158 /* WimduFonts.swift in Sources */,
+				C7CD53061D1BEA460039697E /* CitiesViewController.swift in Sources */,
 				8B7B11741D1BCB9D0039704B /* SearchVC.swift in Sources */,
 				8B7B11711D1BCB330039704B /* Search.swift in Sources */,
 				C7D1FC641D1BD68600D2A158 /* WimduColors.swift in Sources */,
 				8B7B116D1D1BCAE90039704B /* Inspiration.swift in Sources */,
+				C7CD530C1D1BEDA30039697E /* CheckInViewController.swift in Sources */,
 				C7D1FC5F1D1BD61200D2A158 /* SearchParameterTextField.swift in Sources */,
 				8B7B115C1D1BC9E40039704B /* MessagesViewController.swift in Sources */,
+				C7CD530A1D1BEA640039697E /* GuestsCountViewController.swift in Sources */,
 				C7D1FC681D1BD70F00D2A158 /* ColorExtension.swift in Sources */,
 				C7D1FC6E1D1BD91D00D2A158 /* GuestsParameterTextField.swift in Sources */,
 			);
