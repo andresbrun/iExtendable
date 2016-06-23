@@ -37,7 +37,8 @@ class CitiesViewController: UITableViewController, SearchParameterViewController
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        search?.inspiration = cities[indexPath.row]
+        search?.inspirationName = cities[indexPath.row].name
+        search?.inspirationKey = cities[indexPath.row].searchKey
         completion?()
     }
     

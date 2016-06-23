@@ -115,16 +115,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello World" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1e-fi-ked">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="w_logo" translatesAutoresizingMaskIntoConstraints="NO" id="uBy-vQ-guI"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5qI-Qm-4tm"/>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.14901960780000001" green="0.43529411759999997" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="d1e-fi-ked" secondAttribute="centerY" id="H0s-hz-dDP"/>
-                            <constraint firstAttribute="centerX" secondItem="d1e-fi-ked" secondAttribute="centerX" id="wFy-hW-Bib"/>
+                            <constraint firstItem="uBy-vQ-guI" firstAttribute="centerX" secondItem="5qI-Qm-4tm" secondAttribute="centerX" id="GF2-yF-4kV"/>
+                            <constraint firstItem="5qI-Qm-4tm" firstAttribute="centerX" secondItem="zMn-AG-sqS" secondAttribute="centerX" id="fZt-nl-2I1"/>
+                            <constraint firstItem="5qI-Qm-4tm" firstAttribute="top" secondItem="uBy-vQ-guI" secondAttribute="bottom" constant="8" id="ndZ-en-PzA"/>
+                            <constraint firstItem="5qI-Qm-4tm" firstAttribute="centerY" secondItem="zMn-AG-sqS" secondAttribute="centerY" id="vB2-Gj-upC"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -262,6 +261,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qLD-A1-aMC" firstAttribute="leading" secondItem="HAJ-wh-Hpr" secondAttribute="leading" id="27F-7x-sJ6"/>
                             <constraint firstItem="AsN-Ph-Z9d" firstAttribute="top" secondItem="HAJ-wh-Hpr" secondAttribute="top" id="3BC-51-ojh"/>
@@ -319,17 +319,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Guests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzF-xz-aQb">
-                                <frame key="frameInset" minX="161" minY="120" width="54" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FX1-au-NMI">
+                                <connections>
+                                    <outlet property="dataSource" destination="7CX-Hl-eRd" id="nsc-TD-vGt"/>
+                                    <outlet property="delegate" destination="7CX-Hl-eRd" id="g85-pZ-FpK"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hzF-xz-aQb" firstAttribute="centerY" secondItem="mDD-OH-LtA" secondAttribute="centerY" id="2hz-Tv-Azc"/>
-                            <constraint firstItem="hzF-xz-aQb" firstAttribute="centerX" secondItem="mDD-OH-LtA" secondAttribute="centerX" id="a1a-oS-te1"/>
+                            <constraint firstItem="FX1-au-NMI" firstAttribute="leading" secondItem="mDD-OH-LtA" secondAttribute="leading" id="J6F-wT-hUT"/>
+                            <constraint firstItem="FX1-au-NMI" firstAttribute="centerY" secondItem="mDD-OH-LtA" secondAttribute="centerY" id="ixK-cY-2V3"/>
+                            <constraint firstAttribute="trailing" secondItem="FX1-au-NMI" secondAttribute="trailing" id="p5I-Z5-XSY"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -361,9 +362,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dq8-Yr-0fE" firstAttribute="leading" secondItem="7yZ-Dt-kcg" secondAttribute="leading" id="8jb-Q5-od6"/>
-                            <constraint firstItem="dq8-Yr-0fE" firstAttribute="top" secondItem="x5V-F3-QE3" secondAttribute="bottom" id="anq-Hd-WII"/>
                             <constraint firstAttribute="trailing" secondItem="dq8-Yr-0fE" secondAttribute="trailing" id="etl-dZ-hH9"/>
-                            <constraint firstItem="oQT-1s-Umf" firstAttribute="top" secondItem="dq8-Yr-0fE" secondAttribute="bottom" id="vY1-ib-e64"/>
+                            <constraint firstItem="dq8-Yr-0fE" firstAttribute="centerY" secondItem="7yZ-Dt-kcg" secondAttribute="centerY" id="tmb-ka-iMt"/>
                         </constraints>
                     </view>
                     <connections>
@@ -462,10 +462,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aSa-Td-uom" firstAttribute="centerY" secondItem="FJA-OM-4Jp" secondAttribute="centerY" id="Rb2-DX-kIN"/>
                             <constraint firstItem="aSa-Td-uom" firstAttribute="leading" secondItem="FJA-OM-4Jp" secondAttribute="leading" id="fhj-YV-JoI"/>
                             <constraint firstAttribute="trailing" secondItem="aSa-Td-uom" secondAttribute="trailing" id="tCx-Zf-a1Z"/>
-                            <constraint firstItem="aSa-Td-uom" firstAttribute="top" secondItem="dlH-gz-zHH" secondAttribute="bottom" id="y1R-V5-VIc"/>
-                            <constraint firstItem="eQg-Du-KJO" firstAttribute="top" secondItem="aSa-Td-uom" secondAttribute="bottom" id="yMb-rr-cpq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -477,4 +476,7 @@
             <point key="canvasLocation" x="2073" y="-390"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="w_logo" width="25" height="18"/>
+    </resources>
 </document>

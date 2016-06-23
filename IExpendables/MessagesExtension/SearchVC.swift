@@ -102,7 +102,7 @@ class SearchVC: UIViewController {
     }
     
     private func updateSearch() {
-        update(textField: cityTextField, value: search.inspiration?.name, selected: currentView == .Cities)
+        update(textField: cityTextField, value: search.inspirationName, selected: currentView == .Cities)
         update(textField: checkInTextField, value: search.checkin?.simpleString, selected: currentView == .CheckIn)
         update(textField: checkOutTextField, value: search.checkout?.simpleString, selected: currentView == .CheckOut)
         update(textField: guestsTextField, value: String(search.guests), selected: currentView == .Guests)

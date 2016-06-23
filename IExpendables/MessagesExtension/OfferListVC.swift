@@ -102,7 +102,7 @@ extension Search {
             items.append(URLQueryItem(name: "checkout", value: String(checkout.timeIntervalSince1970)))
         }
         items.append(URLQueryItem(name: "guests", value: String(guests)))
-        items.append(URLQueryItem(name: "search_key", value: inspirationID ?? "1943-berlin"))
+        items.append(URLQueryItem(name: "search_key", value: inspirationKey ?? "1943-berlin"))
         
         return items
     }
