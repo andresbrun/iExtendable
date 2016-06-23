@@ -41,6 +41,8 @@ class CitiesViewController: UITableViewController, SearchParameterViewController
         completion?()
     }
     
+    func configure() { }
+    
     private func getCities() {
         let urlString = "https://mapi.staging.wimdu.com/api/v3/hk_inspirations"
         let url = URL(string: urlString)
