@@ -20,7 +20,7 @@
                                 <frame key="frameInset" minY="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t5W-tB-ejY" id="maB-QI-VIF">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -76,12 +76,86 @@
                     <view key="view" contentMode="scaleToFill" id="HAJ-wh-Hpr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.14901960780000001" green="0.43529411759999997" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="AsN-Ph-Z9d">
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalCompressionResistancePriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Azc-Wt-GWk" userLabel="Area" customClass="AreaParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-VI-XZV" userLabel="separator">
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="iBI-0Q-Cx1"/>
+                                            <constraint firstAttribute="height" constant="20" id="juB-4o-2lC"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CheckIn" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G5q-tE-MR8" userLabel="Dates range" customClass="DateParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCondensed" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sx6-Vv-f6k" userLabel="separator">
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1" id="4QZ-tj-XtP"/>
+                                            <constraint firstAttribute="height" constant="20" id="ul4-ta-EmT"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CheckOut" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hAh-2m-2n0" userLabel="Dates range" customClass="DateParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCondensed" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z5D-PP-czA" userLabel="separator">
+                                        <color key="backgroundColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="qKm-EN-U3n"/>
+                                            <constraint firstAttribute="width" constant="1" id="yVu-Hc-LVM"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Guests" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6J-EZ-TmC" userLabel="Guests number" customClass="GuestsParameterTextField" customModule="MessagesExtension" customModuleProvider="target">
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="includeGuestText" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="G5q-tE-MR8" firstAttribute="width" secondItem="Z6J-EZ-TmC" secondAttribute="width" id="6GL-iO-EUR"/>
+                                    <constraint firstAttribute="bottom" secondItem="Azc-Wt-GWk" secondAttribute="bottom" id="8rv-eC-HKe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z6J-EZ-TmC" secondAttribute="bottom" id="9pG-zC-rWT"/>
+                                    <constraint firstItem="Azc-Wt-GWk" firstAttribute="top" secondItem="AsN-Ph-Z9d" secondAttribute="top" id="LgC-1a-TOD"/>
+                                    <constraint firstAttribute="height" constant="44" id="SZj-yx-i70"/>
+                                    <constraint firstItem="G5q-tE-MR8" firstAttribute="top" secondItem="AsN-Ph-Z9d" secondAttribute="top" id="dSl-hN-bR1"/>
+                                    <constraint firstAttribute="bottom" secondItem="hAh-2m-2n0" secondAttribute="bottom" id="eak-Of-6HW"/>
+                                    <constraint firstItem="hAh-2m-2n0" firstAttribute="top" secondItem="AsN-Ph-Z9d" secondAttribute="top" id="h57-8c-aSt"/>
+                                    <constraint firstItem="Z6J-EZ-TmC" firstAttribute="top" secondItem="AsN-Ph-Z9d" secondAttribute="top" id="iu0-Y3-Yxt"/>
+                                    <constraint firstAttribute="bottom" secondItem="G5q-tE-MR8" secondAttribute="bottom" id="vVT-xP-Ome"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6GL-iO-EUR"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="AsN-Ph-Z9d" firstAttribute="top" secondItem="HAJ-wh-Hpr" secondAttribute="top" id="3BC-51-ojh"/>
+                            <constraint firstAttribute="trailing" secondItem="AsN-Ph-Z9d" secondAttribute="trailing" constant="5" id="Wts-GY-yNZ"/>
+                            <constraint firstItem="AsN-Ph-Z9d" firstAttribute="leading" secondItem="HAJ-wh-Hpr" secondAttribute="leading" constant="5" id="vaB-HO-1SX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PzC-de-Ad7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922" y="34"/>
+            <point key="canvasLocation" x="801" y="38"/>
         </scene>
     </scenes>
 </document>
