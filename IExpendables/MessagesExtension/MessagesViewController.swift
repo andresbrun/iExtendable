@@ -72,31 +72,21 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
-
+    
 }
 
 extension MessagesViewController {
     private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
         // Determine the controller to present.
-        let controller: UIViewController = SearchVC.initFromStoryboard(search: Search())
-//        if presentationStyle == .compact {
-//            // Show a list of previously created ice creams.
-//            controller = SearchVC.initFromStoryboard(search: Search())
-//        }
-//        else {
-//            /*
-//             Parse an `IceCream` from the conversation's `selectedMessage` or
-//             create a new `IceCream` if there isn't one associated with the message.
-//             */
-//            let iceCream = IceCream(message: conversation.selectedMessage) ?? IceCream()
-//            
-//            if iceCream.isComplete {
-//                controller = instantiateCompletedIceCreamController(with: iceCream)
-//            }
-//            else {
-//                controller = instantiateBuildIceCreamController(with: iceCream)
-//            }
-//        }
+        let search = Search(message: conversation.selectedMessage) ?? Search()
+        let controller: UIViewController
+        
+        if presentationStyle == .compact {
+            controller = SearchVC.initFromStoryboard(search: search)
+        } else {
+            controller = OfferListVC.initFromStoryboard(search: search, delegate: self)
+        }
+
         
         // Remove any existing child controllers.
         for child in childViewControllers {
@@ -129,7 +119,11 @@ extension MessagesViewController {
             let data = try! Data(contentsOf: imageURL)
             layout.image = UIImage(data: data)
         }
-        layout.caption = caption
+        layout.imageTitle = caption
+        layout.caption = search.checkin?.humanDescription
+        layout.trailingCaption = search.checkout?.humanDescription
+        
+        layout.subcaption = "\(search.guests) guests"
         
         let message = MSMessage(session: session ?? MSSession())
         message.url = components.url!
@@ -137,14 +131,34 @@ extension MessagesViewController {
         
         return message
     }
-    
 }
 
-extension MessagesViewController {
-    func buildSearchViewController(_ controller: SearchVC, didSelect search: Search) {
-    }
-    
-    func buildOfferListViewController(_ controller: OfferListVC, didSelect search: Search) {
+
+extension MessagesViewController: OfferListVCDelegate {
+    func offerDidSelected(search: Search) {
         
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
+        
+        // Create a new message with the same session as any currently selected message.
+        let message = composeMessage(with: search, caption: "Something here??", session: conversation.selectedMessage?.session)
+        
+        // Add the message to the conversation.
+        conversation.insert(message, localizedChangeDescription: "Changed Description??") { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        
+        dismiss()
+    }
+}
+
+extension Date {
+    var humanDescription: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .mediumStyle
+        formatter.timeStyle = .noStyle
+        
+        return formatter.string(from: self)
     }
 }

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,13 +17,46 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.72941176470000002" green="0.41176470590000003" blue="0.21176470589999999" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="t5W-tB-ejY">
-                                <frame key="frameInset" minY="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OfferCell" rowHeight="150" id="t5W-tB-ejY" customClass="OfferCell" customModule="MessagesExtension" customModuleProvider="target">
+                                <frame key="frameInset" minY="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t5W-tB-ejY" id="maB-QI-VIF">
                                     <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-4Z-py5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scn-NJ-rca">
+                                            <color key="backgroundColor" red="0.14901960780000001" green="0.43529411759999997" blue="0.79215686269999996" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="hjj-qC-J3L"/>
+                                                <constraint firstAttribute="width" constant="60" id="qYV-9A-G6C"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0H-ha-l0N">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="scn-NJ-rca" firstAttribute="trailing" secondItem="rNk-4Z-py5" secondAttribute="trailing" id="045-RJ-fxj"/>
+                                        <constraint firstItem="rNk-4Z-py5" firstAttribute="leading" secondItem="maB-QI-VIF" secondAttribute="leading" id="Ezo-S7-UOD"/>
+                                        <constraint firstAttribute="trailing" secondItem="rNk-4Z-py5" secondAttribute="trailing" id="FpJ-ee-2l9"/>
+                                        <constraint firstItem="c0H-ha-l0N" firstAttribute="leading" secondItem="maB-QI-VIF" secondAttribute="leadingMargin" id="Q4y-m1-fMg"/>
+                                        <constraint firstItem="scn-NJ-rca" firstAttribute="bottom" secondItem="rNk-4Z-py5" secondAttribute="bottom" id="U0k-1g-IMj"/>
+                                        <constraint firstItem="c0H-ha-l0N" firstAttribute="top" secondItem="rNk-4Z-py5" secondAttribute="bottom" constant="8" id="aCP-VX-xOI"/>
+                                        <constraint firstItem="rNk-4Z-py5" firstAttribute="top" secondItem="maB-QI-VIF" secondAttribute="top" id="aII-eY-cRo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="c0H-ha-l0N" secondAttribute="bottom" constant="2" id="saQ-XZ-geX"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="offerImageView" destination="rNk-4Z-py5" id="cQV-fd-Egn"/>
+                                    <outlet property="price" destination="scn-NJ-rca" id="Avp-uC-TYM"/>
+                                    <outlet property="title" destination="c0H-ha-l0N" id="ltN-fq-dWV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -33,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yEC-gN-5Tp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-809" y="-9"/>
+            <point key="canvasLocation" x="-810.39999999999998" y="-9.4452773613193415"/>
         </scene>
         <!--Messages View Controller-->
         <scene sceneID="7MM-of-jgj">
