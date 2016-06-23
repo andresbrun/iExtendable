@@ -84,7 +84,7 @@ extension MessagesViewController {
         if presentationStyle == .compact {
             controller = SearchVC.initFromStoryboard(search: search)
         } else {
-            controller = OfferListVC.initFromStoryboard(search: search)
+            controller = OfferListVC.initFromStoryboard(search: search, delegate: self)
         }
 
         
@@ -139,6 +139,25 @@ extension MessagesViewController {
     
     func buildOfferListViewController(_ controller: OfferListVC, didSelect search: Search) {
         
+    }
+}
+
+extension MessagesViewController: OfferListVCDelegate {
+    func offerDidSelected(search: Search) {
+        
+        guard let conversation = activeConversation else { fatalError("Expected a conversation") }
+        
+        // Create a new message with the same session as any currently selected message.
+        let message = composeMessage(with: search, caption: "Something here??", session: conversation.selectedMessage?.session)
+        
+        // Add the message to the conversation.
+        conversation.insert(message, localizedChangeDescription: "Changed Description??") { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        
+        dismiss()
     }
 }
 

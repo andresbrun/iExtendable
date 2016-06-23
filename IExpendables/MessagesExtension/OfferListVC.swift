@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol OfferListVCDelegate {
-    func offerDidSelected(offer: Offer)
+    func offerDidSelected(search: Search)
 }
 
 class OfferListVC: UITableViewController {
@@ -37,10 +37,11 @@ class OfferListVC: UITableViewController {
         }
     }
     
-    static func initFromStoryboard(search: Search) -> OfferListVC {
+    static func initFromStoryboard(search: Search, delegate: OfferListVCDelegate) -> OfferListVC {
         let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "OfferListVC") as? OfferListVC else { fatalError("Unable to instantiate a CompletedIceCreamViewController from the storyboard") }
         controller.search = search
+        controller.delegate = delegate
         return controller
     }
     
@@ -69,6 +70,11 @@ class OfferListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         super.tableView(tableView, didSelectRowAt: indexPath)
-        delegate?.offerDidSelected(offer: offers![indexPath.row])
+        
+        let offer = offers![indexPath.row]
+        search?.selectedOfferID = offer.id
+        search?.selectedOfferImageURL = offer.imageURL
+
+        delegate?.offerDidSelected(search: search!)
     }
 }
