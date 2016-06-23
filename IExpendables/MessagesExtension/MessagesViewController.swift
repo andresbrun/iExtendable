@@ -24,11 +24,6 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
-        // Called when the extension is about to move from the inactive to active state.
-        // This will happen when the extension is about to present UI.
-        
-        // Use this method to configure the extension and restore previously stored state.
-        // Present the view controller appropriate for the conversation and presentation style.
         presentViewController(for: conversation, with: presentationStyle)
     }
     
@@ -119,12 +114,15 @@ extension MessagesViewController {
             let data = try! Data(contentsOf: imageURL)
             layout.image = UIImage(data: data)
         }
-        layout.imageTitle = search.selectedOfferPrice
-        layout.imageSubtitle = search.selectedOfferName
-        layout.caption = search.checkin?.humanDescription
-        layout.trailingCaption = search.checkout?.humanDescription
+        layout.trailingSubcaption = "\(search.selectedOfferPrice!) per night"
+        layout.imageTitle = search.selectedOfferName
         layout.subcaption = "\(search.guests) guests"
         
+        if let checkin = search.checkin, checkout = search.checkout {
+            layout.caption = checkin.humanDescription
+            layout.trailingCaption = checkout.humanDescription
+        }
+
         let message = MSMessage(session: session ?? MSSession())
         message.url = components.url!
         message.layout = layout
@@ -142,7 +140,7 @@ extension MessagesViewController: OfferListVCDelegate {
         let message = composeMessage(with: search, session: conversation.selectedMessage?.session)
         
         // Add the message to the conversation.
-        conversation.insert(message, localizedChangeDescription: "\(search.checkin?.humanDescription) - \(search.checkout?.humanDescription) | \(search.guests) Guest") { error in
+        conversation.insert(message, localizedChangeDescription: "from \(search.checkin?.humanDescription) to \(search.checkout?.humanDescription) for \(search.guests) Guest") { error in
             if let error = error {
                 print(error)
             }

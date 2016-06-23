@@ -95,11 +95,11 @@ extension Search {
     var APIqueryItems: [URLQueryItem] {
         var items = [URLQueryItem]()
         
-        if let checkin = checkin {
-            items.append(URLQueryItem(name: "checkin", value: String(checkin.timeIntervalSince1970)))
+        if let _ = checkin {
+            items.append(URLQueryItem(name: "checkin", value: "2016-07-29"))
         }
-        if let checkout = checkout {
-            items.append(URLQueryItem(name: "checkout", value: String(checkout.timeIntervalSince1970)))
+        if let _ = checkout {
+            items.append(URLQueryItem(name: "checkout", value: "2016-08-03"))
         }
         items.append(URLQueryItem(name: "guests", value: String(guests)))
         items.append(URLQueryItem(name: "search_key", value: inspirationKey ?? "1943-berlin"))
