@@ -37,6 +37,11 @@ class OfferListVC: UITableViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.rowHeight = 150
+    }
+    
     static func initFromStoryboard(search: Search, delegate: OfferListVCDelegate) -> OfferListVC {
         let storyboard = UIStoryboard(name: "MainInterface", bundle: nil)
         guard let controller = storyboard.instantiateViewController(withIdentifier: "OfferListVC") as? OfferListVC else { fatalError("Unable to instantiate a CompletedIceCreamViewController from the storyboard") }
@@ -46,12 +51,18 @@ class OfferListVC: UITableViewController {
     }
     
     func requestOffers() {
-        let url = URL(string: "http://www.stackoverflow.com")
+        let url = URL(string: "https://mapi.staging.wimdu.com/api/v3/hk_search_offers")!
+        var urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: false)!
+        urlComponent.queryItems = search?.APIqueryItems
         
-        let task = URLSession.shared().dataTask(with: url!) {(data, response, error) in
-//            let string = NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
-            let json = try! JSONSerialization.jsonObject(with: data!, options: []) as? [String:AnyObject]
-            // offers = "whatever"
+        let task = URLSession.shared().dataTask(with: urlComponent.url!) {(data, response, error) in
+            let jsonOffers = try! JSONSerialization.jsonObject(with: data!, options: []) as! Array<Dictionary<String, String>>
+            print(jsonOffers)
+            DispatchQueue.main.sync {
+                self.offers = jsonOffers.map({ (dictionary) -> Offer in
+                    return Offer(name: dictionary["title"]!, price: dictionary["price"]!, imageURL: dictionary["photo"]!, id: dictionary["id"]!)
+                })
+            }
         }
         
         task.resume()
@@ -69,12 +80,30 @@ class OfferListVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        super.tableView(tableView, didSelectRowAt: indexPath)
         
         let offer = offers![indexPath.row]
         search?.selectedOfferID = offer.id
         search?.selectedOfferImageURL = offer.imageURL
+        search?.selectedOfferPrice = offer.price
+        search?.selectedOfferName = offer.name
 
         delegate?.offerDidSelected(search: search!)
+    }
+}
+
+extension Search {
+    var APIqueryItems: [URLQueryItem] {
+        var items = [URLQueryItem]()
+        
+        if let checkin = checkin {
+            items.append(URLQueryItem(name: "checkin", value: String(checkin.timeIntervalSince1970)))
+        }
+        if let checkout = checkout {
+            items.append(URLQueryItem(name: "checkout", value: String(checkout.timeIntervalSince1970)))
+        }
+        items.append(URLQueryItem(name: "guests", value: String(guests)))
+        items.append(URLQueryItem(name: "search_key", value: inspirationID ?? "1943-berlin"))
+        
+        return items
     }
 }

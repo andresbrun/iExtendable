@@ -110,7 +110,7 @@ extension MessagesViewController {
         controller.didMove(toParentViewController: self)
     }
     
-    private func composeMessage(with search: Search, caption: String, session: MSSession? = nil) -> MSMessage {
+    private func composeMessage(with search: Search, session: MSSession?) -> MSMessage {
         var components = URLComponents()
         components.queryItems = search.queryItems
         
@@ -119,10 +119,10 @@ extension MessagesViewController {
             let data = try! Data(contentsOf: imageURL)
             layout.image = UIImage(data: data)
         }
-        layout.imageTitle = caption
+        layout.imageTitle = search.selectedOfferPrice
+        layout.imageSubtitle = search.selectedOfferName
         layout.caption = search.checkin?.humanDescription
         layout.trailingCaption = search.checkout?.humanDescription
-        
         layout.subcaption = "\(search.guests) guests"
         
         let message = MSMessage(session: session ?? MSSession())
@@ -136,11 +136,10 @@ extension MessagesViewController {
 
 extension MessagesViewController: OfferListVCDelegate {
     func offerDidSelected(search: Search) {
-        
         guard let conversation = activeConversation else { fatalError("Expected a conversation") }
         
         // Create a new message with the same session as any currently selected message.
-        let message = composeMessage(with: search, caption: "Something here??", session: conversation.selectedMessage?.session)
+        let message = composeMessage(with: search, session: conversation.selectedMessage?.session)
         
         // Add the message to the conversation.
         conversation.insert(message, localizedChangeDescription: "Changed Description??") { error in

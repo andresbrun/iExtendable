@@ -17,6 +17,8 @@ class Search {
     var selectedOfferID: String?
     var selectedOfferImageURL: String?
     var inspiration: Inspiration?
+    var selectedOfferPrice: String?
+    var selectedOfferName: String?
 }
 
 extension Search {
@@ -43,6 +45,12 @@ extension Search {
         }
         if let selectedOfferImageURL = selectedOfferImageURL {
             items.append(URLQueryItem(name: "selectedOfferImageURL", value: selectedOfferImageURL))
+        }
+        if let selectedOfferPrice = selectedOfferPrice {
+            items.append(URLQueryItem(name: "selectedOfferPrice", value: selectedOfferPrice))
+        }
+        if let selectedOfferName = selectedOfferName {
+            items.append(URLQueryItem(name: "selectedOfferName", value: selectedOfferName))
         }
         items.append(URLQueryItem(name: "guests", value: String(guests)))
         
@@ -77,6 +85,12 @@ extension Search {
             }
             if queryItem.name == "selectedOfferImageURL" {
                 selectedOfferImageURL = value
+            }
+            if queryItem.name == "selectedOfferPrice" {
+                selectedOfferPrice = value
+            }
+            if queryItem.name == "selectedOfferName" {
+                selectedOfferName = value
             }
             if queryItem.name == "guests" {
                 guests = Int(value) ?? 2

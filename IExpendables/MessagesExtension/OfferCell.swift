@@ -12,9 +12,22 @@ import UIKit
 class OfferCell: UITableViewCell {
     
     @IBOutlet weak var offerImageView: UIImageView!
-    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var price: UILabel! {
+        didSet {
+            price.backgroundColor = .wBlue()
+        }
+    }
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var containerView: UIView! {
+        didSet {
+            containerView.layer.cornerRadius = 20
+            containerView.clipsToBounds = true
+            containerView.layer.borderColor = UIColor.wBlue().cgColor
+            containerView.layer.borderWidth = 0.5
+        }
+    }
 }
+
 
 extension OfferCell {
     func configure(offer: Offer) {
